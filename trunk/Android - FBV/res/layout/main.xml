@@ -7,24 +7,29 @@
 
 	<RelativeLayout 
 	   android:layout_width="fill_parent"
-	   android:layout_height="wrap_content">
+	   android:layout_height="wrap_content"
+	   android:layout_gravity="center">
 	    
 	    <EditText
 	        android:id="@+id/fieldLogin"
 	        android:layout_width="fill_parent"
 			android:layout_height="wrap_content"
 			android:layout_marginTop="10px"
-			android:textSize="1px"
+			android:layout_marginLeft="2px"
+			android:layout_marginRight="2px"
 	    	android:hint="Usuário"
 	    />
+	    
 	    <EditText
 	        android:id="@+id/fieldPasswd"
 	        android:layout_width="fill_parent"
 	        android:layout_height="wrap_content"
 	        android:layout_marginTop="10px"
+	        android:layout_marginLeft="2px"
+			android:layout_marginRight="2px"
 	        android:layout_below="@+id/fieldLogin"
-	        android:textSize="1px"
 	        android:hint="Senha"
+	        android:password="true"
 	    />
 	    
 	    <Button 
@@ -37,7 +42,17 @@
 	    	android:text="Logar-se"
 	    />
 	   	
-	    
-	</RelativeLayout>    
+	</RelativeLayout>
+	
 
+	 
+		
+	<TextView 
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="CADASTRAR-SE"
+		android:clickable="true"
+		android:layout_gravity="bottom"
+	/>
+	
 </LinearLayout>
