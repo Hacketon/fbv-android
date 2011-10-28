@@ -1,6 +1,7 @@
 package br.fbv;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -34,6 +35,9 @@ public class NewAccountActivity extends Activity implements OnClickListener
 		// recupera redigitacao senha
 		EditText edtCadPasswdCheck = (EditText) findViewById(R.id.edtCadPasswdCheck);
 		String stringCadPasswdCheck = edtCadPasswdCheck.getText().toString();
+		
+		startActivity(new Intent(this, MainActivity.class));
+		finish();
 		
 	} // end method onClick	
 	
