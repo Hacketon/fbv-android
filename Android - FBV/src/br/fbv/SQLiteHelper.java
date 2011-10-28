@@ -2,21 +2,18 @@ package br.fbv;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class SQLiteHelper extends SQLiteOpenHelper 
 {
 	
-	private String[] scriptSQLCreate;
-	private String scriptSQLDelete;
+	private static final String DATABASE_NAME = "noteGecko.db";
+	public static final int DATABASE_VERSION = 1;
+	private static final String TABLE_NAME = "users";
 
-	public SQLiteHelper(Context context, String nomeBanco, int versao, 
-			String[] scriptSQLCreate, String scriptSQLDelete) 
+	public SQLiteHelper(Context context) 
 	{
-		super(context, nomeBanco, null, versao);
-		this.scriptSQLCreate = scriptSQLCreate;
-		this.scriptSQLDelete = scriptSQLDelete;
+		super(context, DATABASE_NAME, null, DATABASE_VERSION);
 		
 	} // end constructor
 
@@ -24,22 +21,21 @@ public class SQLiteHelper extends SQLiteOpenHelper
 	public void onCreate(SQLiteDatabase db) 
 	{
 		// TODO Auto-generated method stub
-		int qtdScripts = scriptSQLCreate.length;
+		db.execSQL("CREATE TABLE"+ TABLE_NAME +"(userName TEXT, userPasswd TEXT)");
 		
-		for (int i = 0; i < qtdScripts; i++) {
-			String sql = scriptSQLCreate[i];
-			db.execSQL(sql);
-		}
-
 	} // end method onCreate
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) 
 	{
 		// TODO Auto-generated method stub
-		db.execSQL(scriptSQLDelete);
-		onCreate(db);
-
+		if(newVersion - oldVersion > 2)
+		{
+			db.execSQL("DROP TABLE IF EXITS "+ TABLE_NAME);
+			onCreate(db);
+			
+		} // end if
+		
 	} // end method onUpgrade
 
 } // end class SQLiteHelper
