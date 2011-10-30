@@ -1,9 +1,6 @@
 package br.fbv;
 
-import br.fbv.listaexercicioandroid.menu.questao1.letrae.Questao1LetraE;
-import br.fbv.listaexercicioandroid.menu.questao2.Questao2;
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -35,10 +32,8 @@ public class NewAccountActivity extends Activity implements OnClickListener
 			public void onClick(View v) 
 			{
 				// TODO Auto-generated method stub
-				Intent intent = new Intent(MainActivity.this, MainActivity.class);
-				startActivity(intent);
 				salvar();
-				Toast.makeText(MainActivity.this, "Usu‡rio cadastrado com sucesso!", Toast.LENGTH_SHORT);
+				Toast.makeText(NewAccountActivity.this, "Usu‡rio cadastrado com sucesso!", Toast.LENGTH_SHORT);
 				finish();
 				
 			} // end method onClick
@@ -84,6 +79,11 @@ public class NewAccountActivity extends Activity implements OnClickListener
 		return account;
 		
 	} // end method buscarUserName
+
+	public void onClick(View arg0) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 	
