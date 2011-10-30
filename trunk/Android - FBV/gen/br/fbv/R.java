@@ -14,12 +14,19 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int buttonLogin=0x7f050002;
-        public static final int fieldLogin=0x7f050000;
-        public static final int fieldPasswd=0x7f050001;
+        public static final int btnCadUser=0x7f050009;
+        public static final int btnLogin=0x7f050008;
+        public static final int btnSaveUser=0x7f050005;
+        public static final int edtCadPasswd=0x7f050003;
+        public static final int edtCadPasswdCheck=0x7f050004;
+        public static final int edtCadUser=0x7f050001;
+        public static final int fieldLogin=0x7f050006;
+        public static final int fieldPasswd=0x7f050007;
+        public static final int tvCadPasswd=0x7f050002;
+        public static final int tvCadUser=0x7f050000;
     }
     public static final class layout {
-        public static final int cadastro_usuario=0x7f030000;
+        public static final int form_cad_user=0x7f030000;
         public static final int main=0x7f030001;
     }
     public static final class string {
