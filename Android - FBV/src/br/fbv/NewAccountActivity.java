@@ -12,7 +12,7 @@ public class NewAccountActivity extends Activity implements OnClickListener
 {
 	private Account account;
 	private IAccount accountAdapter;
-	private String userName;
+//	private String userName;
 	
 	private EditText edtUserName;
 	private EditText edtUserPasswd;
