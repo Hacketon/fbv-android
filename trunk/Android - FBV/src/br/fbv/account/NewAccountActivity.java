@@ -1,5 +1,8 @@
-package br.fbv;
+package br.fbv.account;
 
+import br.fbv.R;
+import br.fbv.R.id;
+import br.fbv.R.layout;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;

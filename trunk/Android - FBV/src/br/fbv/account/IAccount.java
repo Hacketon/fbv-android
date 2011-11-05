@@ -1,12 +1,8 @@
 /**
  * 
  */
-package br.fbv;
+package br.fbv.account;
 
-/**
- * @author yurialbuquerque
- *
- */
 public interface IAccount 
 {
 	public long inserir(Account account);
