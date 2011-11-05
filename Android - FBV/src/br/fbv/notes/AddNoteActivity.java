@@ -1,4 +1,4 @@
-package br.fbv;
+package br.fbv.notes;
 
 import android.app.Activity;
 

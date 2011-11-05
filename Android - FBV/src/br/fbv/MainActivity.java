@@ -1,5 +1,6 @@
 package br.fbv;
 
+import br.fbv.account.NewAccountActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
