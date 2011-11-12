@@ -3,5 +3,6 @@
 
     <string name="hello">Hello World, MainActivity!</string>
     <string name="app_name">Android - FBV</string>
+    <string name="btnWelcome"></string>
 
 </resources>
