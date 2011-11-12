@@ -6,20 +6,29 @@
 
     <uses-sdk android:minSdkVersion="7" />
 
-    <application android:icon="@drawable/ic_launcher" android:label="@string/app_name" >
-        
-        <activity android:label="Android Annotations" android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+    <application
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name" >
+        <activity
+            android:label="Bloco de Notas"
+            android:name=".MainActivity" >
+            <intent-filter >
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        
-        <activity android:name=".account.NewAccountActivity"></activity>
-        <activity android:name=".notes.NoteListActivity"></activity>
-        <activity android:name=".notes.AchievementListActivity"> </activity>
-        <activity android:name=".notes.AddNoteActivity"> </activity>
-        
+        <activity
+            android:label="Bem-vindo!"
+            android:name=".SplashActivity" >
+            <intent-filter >
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".account.NewAccountActivity" >
+        </activity>
     </application>
 
 </manifest>

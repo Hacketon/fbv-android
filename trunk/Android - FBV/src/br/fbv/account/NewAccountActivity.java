@@ -1,15 +1,14 @@
 package br.fbv.account;
 
-import br.fbv.R;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import br.fbv.R;
 
-public class NewAccountActivity extends Activity implements OnClickListener
+public class NewAccountActivity extends Activity
 {
 	private Account account;
 	private IAccount accountAdapter;
@@ -80,12 +79,6 @@ public class NewAccountActivity extends Activity implements OnClickListener
 		return account;
 		
 	} // end method buscarUserName
-
-	public void onClick(View arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-	
 	
 	
 } // end class NewAccountActivity
