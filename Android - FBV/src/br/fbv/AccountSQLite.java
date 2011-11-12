@@ -26,7 +26,7 @@ public class AccountSQLite extends Activity
 	{
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.form_cad_user);
+		setContentView(R.layout.newaccount);
 		accountAdapter = new AccountAdapter(this);
 		
 	} // end method onCreate

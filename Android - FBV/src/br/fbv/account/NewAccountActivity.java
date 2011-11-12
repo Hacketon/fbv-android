@@ -22,7 +22,7 @@ public class NewAccountActivity extends Activity
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.form_cad_user);
+		setContentView(R.layout.newaccount);
 		accountAdapter = new AccountAdapter(this);
 		
 		Button btnSaveUser = (Button) findViewById(R.id.btnSaveUser);
