@@ -34,7 +34,7 @@ public class NewAccountActivity extends Activity implements OnClickListener
 			{
 				// TODO Auto-generated method stub
 				salvar();
-				Toast.makeText(NewAccountActivity.this, "Usu‡rio cadastrado com sucesso!", Toast.LENGTH_SHORT);
+				Toast.makeText(NewAccountActivity.this, "Usuario cadastrado com sucesso!", Toast.LENGTH_SHORT);
 				finish();
 				
 			} // end method onClick
