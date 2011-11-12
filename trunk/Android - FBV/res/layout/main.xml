@@ -4,61 +4,17 @@
     android:layout_height="fill_parent"
     android:orientation="vertical"
     android:background="#FFA500">
+    
+    <RelativeLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        
+        <Button android:text="Welcome"
+	        android:id="@+id/botaoWelcome"
+        	android:width="200px"
+        	android:height="55px"
+        	android:textSize="18px" 
+    	/>
+    </RelativeLayout>
 
-	<RelativeLayout 
-	   android:layout_width="fill_parent"
-	   android:layout_height="wrap_content"
-	   android:gravity="center">
-	    
-	    <EditText
-	        android:id="@+id/fieldLogin"
-	        android:layout_width="fill_parent"
-			android:layout_height="wrap_content"
-			android:layout_marginTop="10px"
-			android:layout_marginLeft="2px"
-			android:layout_marginRight="2px"
-	    	android:hint="Usuário"
-	    />
-	    
-	    <EditText
-	        android:id="@+id/fieldPasswd"
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-	        android:layout_marginTop="10px"
-	        android:layout_marginLeft="2px"
-			android:layout_marginRight="2px"
-	        android:layout_below="@+id/fieldLogin"
-	        android:hint="Senha"
-	        android:password="true"
-	    />
-	    
-	    <Button 
-	    	android:id="@+id/btnLogin"
-	    	android:layout_width="wrap_content"
-	    	android:layout_height="wrap_content"
-	    	android:layout_marginTop="10px"
-	    	android:layout_marginRight="2px"
-	    	android:layout_below="@+id/fieldPasswd"
-	    	android:layout_alignParentRight="true"
-	    	android:text="Logar-se"
-	    />
-	   	
-	</RelativeLayout>
-
-	<RelativeLayout 
-	    android:layout_width="fill_parent"
-	    android:layout_height="fill_parent"
-	    android:gravity="bottom">
-		
-		<Button 
-		    android:id="@+id/btnCadUser"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_alignParentRight="true"
-			android:layout_marginRight="2px"
-			android:text="cadastrar-se"
-		/>
-		
-	</RelativeLayout>
-	
 </LinearLayout>
