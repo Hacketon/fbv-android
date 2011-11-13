@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import br.fbv.account.NewAccountActivity;
-import br.fbv.notes.NoteListActivity;
 
 public class SplashActivity extends Activity implements Runnable {
 
@@ -28,10 +26,9 @@ public class SplashActivity extends Activity implements Runnable {
 	}
 
 	public void run() {
-		Intent it = new Intent(this, NoteListActivity.class);
-		Intent cadastro = new Intent(this, NewAccountActivity.class);
+		Intent it = new Intent(this, MainActivity.class);
 
-		startActivity(cadastro);
+		startActivity(it);
 
 		finish();
 
