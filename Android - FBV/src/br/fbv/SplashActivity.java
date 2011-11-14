@@ -9,31 +9,29 @@ public class SplashActivity extends Activity implements Runnable {
 
 	private Handler handler;
 
-	protected void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(Bundle savedInstanceState) 
+	{
 		super.onCreate(savedInstanceState);
-
 		setContentView(R.layout.splash);
-
 		handler = new Handler();
+		handler.postDelayed(this, 3000);
+		
+	} // end method onCreate
 
-		handler.postDelayed(this, 2000);
-	}
-
-	protected void onPause() {
+	protected void onPause() 
+	{
 		super.onPause();
-
 		handler.removeCallbacks(this);
-	}
+		
+	} // end method onCreate
 
-	public void run() {
+	public void run() 
+	{
 		Intent it = new Intent(this, MainActivity.class);
-
 		startActivity(it);
-
 		finish();
+		overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+	
+	} // end method run
 
-		overridePendingTransition(android.R.anim.fade_in,
-				android.R.anim.fade_out);
-	}
-
-}
+} // end class SplashActivity
