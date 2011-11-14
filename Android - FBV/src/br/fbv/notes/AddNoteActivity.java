@@ -59,13 +59,27 @@ public class AddNoteActivity extends Activity {
 							Intent intent = new Intent(AddNoteActivity.this, MainActivity.class);
 							startActivity(intent);
 							finish();
-						}
+						
+						} // end method onClick
+						
 					});
+					
 					adb.show();
 
 				} catch (SQLException e) {
 					// TODO: handle exception
-					
+					AlertDialog.Builder adb = new AlertDialog.Builder(AddNoteActivity.this);
+					adb.setTitle("Erro");
+					adb.setMessage("Nota n‹o adicionada!");
+					adb.setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+						
+						public void onClick(DialogInterface dialog, int which) {
+							// TODO Auto-generated method stub
+							finish();
+						} // end method onClick
+						
+					});
+					adb.show();
 				} // end try/catch
 				
 			} // end method onClick
