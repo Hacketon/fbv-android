@@ -43,29 +43,75 @@ public class AddNoteActivity extends Activity {
 		btnSaveNote.setOnClickListener(new View.OnClickListener() {
 			
 			public void onClick(View v) {
+				
+				try {
+					saveNote();
+					
+					AlertDialog.Builder adb = new AlertDialog.Builder(AddNoteActivity.this);
+					adb.setTitle("Confirmação");
+					adb.setMessage("Nota Adicionada com Sucesso!");
+					adb.setNeutralButton("Ok", null);
+					adb.show();
+					
+					edtTitleNote.setText(null);
+					edtBodyNote.setText(null);
+					
+					Intent intent = new Intent(AddNoteActivity.this, MainActivity.class);
+					startActivity(intent);
+				} catch (SQLException e) {
+					// TODO: handle exception
+				}
+				
 
-				EditText noteTitle = (EditText) findViewById(R.id.noteTitle);
-				EditText noteBody = (EditText) findViewById(R.id.noteBody);
-				
-				String title = noteTitle.getText().toString();
-				String body = noteBody.getText().toString();
-				
-				AlertDialog.Builder dialog = new AlertDialog.Builder(AddNoteActivity.this);
-				dialog.setTitle(title);
-				dialog.setMessage(body);
-				dialog.setNeutralButton("OK", null);
-				dialog.show();	
+//				EditText noteTitle = (EditText) findViewById(R.id.noteTitle);
+//				EditText noteBody = (EditText) findViewById(R.id.noteBody);
+//				
+//				String title = noteTitle.getText().toString();
+//				String body = noteBody.getText().toString();
+//				
+//				AlertDialog.Builder dialog = new AlertDialog.Builder(AddNoteActivity.this);
+//				dialog.setTitle(title);
+//				dialog.setMessage(body);
+//				dialog.setNeutralButton("OK", null);
+//				dialog.show();	
 			} // end method onClick
 			
 		});
 	}
 	
-	public void bancoDados()
+	public void saveNote()
+	{
+		dataBase();
+		try {
+			String sql = "INSERT INTO notes (title, note) VALUES ('" + 
+					   edtTitleNote.getText().toString() + "','" + 
+					   edtBodyNote.getText().toString() + "')";
+			bd.execSQL(sql);
+		} catch (SQLException e) {
+			// TODO: handle exception
+			AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+			alertDialog.setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+				
+				public void onClick(DialogInterface dialog, int which) 
+				{
+					// TODO Auto-generated method stub
+					Intent intent = new Intent(AddNoteActivity.this, MainActivity.class);
+					startActivity(intent);
+				} // end method onClick
+				
+			});
+			alertDialog.show();
+			
+		} // end try/catch
+		
+	} // end method saveNote
+	
+	public void dataBase()
 	{
 		try {
 			String nameDataBase = "gecko_note";
 			bd = openOrCreateDatabase(nameDataBase, MODE_WORLD_READABLE, null);			
-			String sql = "CREATE TABLE IF NOT EXISTS note " +
+			String sql = "CREATE TABLE IF NOT EXISTS notes " +
 					 "(_id INTERGER PRIMARY KEY, " +
 					 " title TEXT, " + 
 					 " note TEXT);";
@@ -88,6 +134,6 @@ public class AddNoteActivity extends Activity {
 			alertDialog.show();
 		} // end try/catch
 		
-	} // end method bancoDados
+	} // end method dataBase
 
 }
