@@ -4,6 +4,44 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
-    
+    <TextView
+        android:id="@+id/topTitle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Nova Nota"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/noteTitle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10px"
+        android:hint="Digite o título da anotação" >
+    </EditText>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.9" >
+
+        <EditText
+            android:id="@+id/noteBody"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_margin="10px"
+            android:hint="Digite o texto da anotação" >
+        </EditText>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginRight="10px"
+        android:layout_marginBottom="5px"
+        android:text="Salvar" />
 
 </LinearLayout>

@@ -1,6 +1,8 @@
 package br.fbv;
 
+import br.fbv.notes.AddNoteActivity;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,9 +15,20 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.main);
 
 		Button btnNewNote = (Button) findViewById(R.id.btnNewNote);
+		Button btnListNotes = (Button) findViewById(R.id.btnListNote);
 		Button btnAbout = (Button) findViewById(R.id.btnAbout);
 
+		final Intent about = new Intent(this, AboutActivity.class);
+		final Intent newNote = new Intent(this, AddNoteActivity.class);
+
 		btnNewNote.setOnClickListener(new View.OnClickListener() {
+
+			public void onClick(View v) {
+				startActivity(newNote);
+			}
+		});
+
+		btnListNotes.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View v) {
 				
@@ -25,10 +38,8 @@ public class MainActivity extends Activity {
 		btnAbout.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View v) {
-
+				startActivity(about);
 			}
 		});
-
 	}
-
 }
