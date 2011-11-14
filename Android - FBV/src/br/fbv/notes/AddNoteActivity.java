@@ -1,7 +1,5 @@
 package br.fbv.notes;
 
-import java.security.PublicKey;
-
 import br.fbv.MainActivity;
 import br.fbv.R;
 import android.app.Activity;
@@ -83,6 +81,7 @@ public class AddNoteActivity extends Activity {
 					   edtTitleNote.getText().toString() + "','" + 
 					   edtBodyNote.getText().toString() + "')";
 			bd.execSQL(sql);
+			bd.close();
 		} catch (SQLException e) {
 			// TODO: handle exception
 			AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
@@ -91,6 +90,8 @@ public class AddNoteActivity extends Activity {
 				public void onClick(DialogInterface dialog, int which) 
 				{
 					// TODO Auto-generated method stub
+					edtTitleNote.setText(null);
+					edtBodyNote.setText(null);
 					Intent intent = new Intent(AddNoteActivity.this, MainActivity.class);
 					startActivity(intent);
 				} // end method onClick

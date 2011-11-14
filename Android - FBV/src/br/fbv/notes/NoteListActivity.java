@@ -23,4 +23,5 @@ public class NoteListActivity extends Activity {
 		list.setAdapter(adapter);
 	}
 
-}
+	
+} // end class NoteListActivity
