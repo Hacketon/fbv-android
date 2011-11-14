@@ -1,5 +1,7 @@
 package br.fbv.notes;
 
+import java.security.PublicKey;
+
 import br.fbv.MainActivity;
 import br.fbv.R;
 import android.app.Activity;
@@ -50,17 +52,24 @@ public class AddNoteActivity extends Activity {
 					AlertDialog.Builder adb = new AlertDialog.Builder(AddNoteActivity.this);
 					adb.setTitle("Confirmação");
 					adb.setMessage("Nota Adicionada com Sucesso!");
-					adb.setNeutralButton("Ok", null);
+					adb.setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+						
+						public void onClick(DialogInterface dialog, int which) {
+							// TODO Auto-generated method stub
+							edtTitleNote.setText(null);
+							edtBodyNote.setText(null);
+							Intent intent = new Intent(AddNoteActivity.this, MainActivity.class);
+							startActivity(intent);
+							finish();
+						}
+					});
 					adb.show();
-					
-					edtTitleNote.setText(null);
-					edtBodyNote.setText(null);
-					
-					Intent intent = new Intent(AddNoteActivity.this, MainActivity.class);
-					startActivity(intent);
+
 				} catch (SQLException e) {
 					// TODO: handle exception
-				}
+					
+				} // end try/catch
+				
 			} // end method onClick
 			
 		});
