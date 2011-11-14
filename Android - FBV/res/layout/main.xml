@@ -9,9 +9,9 @@
         android:id="@+id/textView1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:text="Menu"
-        android:textAppearance="?android:attr/textAppearanceMedium" 
-        android:gravity="center"/>
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <Button
         android:id="@+id/btnNewNote"
@@ -20,9 +20,15 @@
         android:text="Criar nova anotação" />
 
     <Button
+        android:id="@+id/btnListNote"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Listar anotações" />
+
+    <Button
         android:id="@+id/btnAbout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Sobre Bloco de Notas" />
-    
+
 </LinearLayout>
