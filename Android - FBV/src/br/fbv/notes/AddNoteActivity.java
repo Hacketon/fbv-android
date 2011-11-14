@@ -1,8 +1,12 @@
 package br.fbv.notes;
 
+import br.fbv.MainActivity;
 import br.fbv.R;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -24,10 +28,16 @@ public class AddNoteActivity extends Activity {
 		try {
 			edtTitleNote = (EditText) findViewById(R.id.noteTitle);
 			edtBodyNote = (EditText) findViewById(R.id.noteBody);
+		} catch (Exception e) {
+			// TODO: handle exception
+			Toast.makeText(this, "Erro ao recuperar dados do t’tulo e corpo da nota!", Toast.LENGTH_LONG).show();
+		} // end try/catch
+		
+		try {
 			btnSaveNote = (Button) findViewById(R.id.btnSave);
 		} catch (Exception e) {
 			// TODO: handle exception
-			Toast.makeText(this, "Erro ao recuperar dados!", Toast.LENGTH_LONG).show();
+			Toast.makeText(this, "Erro ao recuperar o bot‹o Salvar!", Toast.LENGTH_LONG).show();
 		}
 		
 		btnSaveNote.setOnClickListener(new View.OnClickListener() {
@@ -45,8 +55,39 @@ public class AddNoteActivity extends Activity {
 				dialog.setMessage(body);
 				dialog.setNeutralButton("OK", null);
 				dialog.show();	
-			}
+			} // end method onClick
+			
 		});
 	}
+	
+	public void bancoDados()
+	{
+		try {
+			String nameDataBase = "gecko_note";
+			bd = openOrCreateDatabase(nameDataBase, MODE_WORLD_READABLE, null);			
+			String sql = "CREATE TABLE IF NOT EXISTS note " +
+					 "(_id INTERGER PRIMARY KEY, " +
+					 " title TEXT, " + 
+					 " note TEXT);";
+			bd.execSQL(sql);
+			
+		} catch (SQLException e) {
+			// TODO: handle exception
+			AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+			alertDialog.setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+				
+				public void onClick(DialogInterface dialog, int which) 
+				{
+					// TODO Auto-generated method stub
+					Intent intent = new Intent(AddNoteActivity.this, MainActivity.class);
+					startActivity(intent);
+				} // end method onClick
+				
+			});
+			
+			alertDialog.show();
+		} // end try/catch
+		
+	} // end method bancoDados
 
 }
