@@ -10,6 +10,10 @@ import android.widget.Button;
 
 public class MainActivity extends Activity {
 
+	Intent about;
+	Intent newNote;
+	Intent noteList;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -19,10 +23,10 @@ public class MainActivity extends Activity {
 		Button btnListNotes = (Button) findViewById(R.id.btnListNote);
 		Button btnAbout = (Button) findViewById(R.id.btnAbout);
 
-		final Intent about = new Intent(this, AboutActivity.class);
-		final Intent newNote = new Intent(this, AddNoteActivity.class);
-		final Intent noteList = new Intent( this, NoteListActivity.class);
-
+		about = new Intent(this, AboutActivity.class);
+		newNote = new Intent(this, AddNoteActivity.class);
+		noteList = new Intent( this, NoteListActivity.class);
+		
 		btnNewNote.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View v) {
@@ -33,7 +37,7 @@ public class MainActivity extends Activity {
 		btnListNotes.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View v) {
-				startActivity(noteList);
+				startActivityForResult(noteList, 1);
 			}
 		});
 
@@ -43,5 +47,16 @@ public class MainActivity extends Activity {
 				startActivity(about);
 			}
 		});
+	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if( requestCode == 1 ){
+			if(resultCode == RESULT_OK )
+			{
+				startActivityForResult(noteList, 1);
+			}
+		}
+		super.onActivityResult(requestCode, resultCode, data);
 	}
 }

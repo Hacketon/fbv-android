@@ -15,7 +15,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
-import br.fbv.MainActivity;
 import br.fbv.R;
 
 public class NoteListActivity extends Activity implements OnItemClickListener, Serializable {
@@ -74,11 +73,7 @@ public class NoteListActivity extends Activity implements OnItemClickListener, S
 					new DialogInterface.OnClickListener() {
 
 						public void onClick(DialogInterface dialog, int which) {
-							// edtTitleNote.setText(null);
-							// edtBodyNote.setText(null);
-							Intent intent = new Intent(NoteListActivity.this,
-									MainActivity.class);
-							startActivity(intent);
+							finish();
 						} // end method onClick
 					});
 			alertDialog.show();
@@ -100,9 +95,7 @@ public class NoteListActivity extends Activity implements OnItemClickListener, S
 					new DialogInterface.OnClickListener() {
 
 						public void onClick(DialogInterface dialog, int which) {
-							Intent intent = new Intent(NoteListActivity.this,
-									MainActivity.class);
-							startActivity(intent);
+							finish();
 						} // end method onClick
 					});
 			alertDialog.show();
@@ -122,9 +115,21 @@ public class NoteListActivity extends Activity implements OnItemClickListener, S
 		
 		intent.putExtra("nota", aux);
 
-		//startActivityForResult(intent, -1);
-		startActivity(intent);
+		startActivityForResult(intent, 1);
+		//startActivity(intent);
 		
+	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if( requestCode == 1 ){
+			if(resultCode == RESULT_OK )
+			{
+				setResult(RESULT_OK, null);
+				finish();
+			}
+		}
+		super.onActivityResult(requestCode, resultCode, data);
 	}
 
 } // end class NoteListActivity
