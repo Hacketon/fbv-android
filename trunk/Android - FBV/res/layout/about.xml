@@ -4,6 +4,11 @@
     android:layout_height="fill_parent"
     android:background="#FFA500"
     android:orientation="vertical" >
+    
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
     <TextView
         android:id="@+id/textView1"
@@ -52,5 +57,20 @@
         android:gravity="center"
         android:text="Yuri Albuquerque"
         android:textAppearance="?android:attr/textAppearanceMedium" />
-
+	
+	</LinearLayout>
+	
+   	<LinearLayout 
+   	    android:layout_width="fill_parent"
+   	    android:layout_height="fill_parent"
+   	    android:orientation="vertical"
+   	    android:paddingTop="30px">
+   	    
+   	    <WebView 
+  			android:layout_width="fill_parent"
+  			android:layout_height="fill_parent"
+  			android:id="@+id/webView" />
+   	    
+   	</LinearLayout>
+	
 </LinearLayout>
