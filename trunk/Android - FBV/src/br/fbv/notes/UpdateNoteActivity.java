@@ -11,6 +11,7 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.widget.EditText;
 import android.widget.TextView;
 import br.fbv.MainActivity;
 import br.fbv.R;
@@ -23,25 +24,25 @@ public class UpdateNoteActivity extends Activity implements Serializable {
 	SQLiteDatabase bd = null;
 	//NotificationManager nm;
 
-	TextView title;
-	TextView body;
+	EditText title;
+	EditText body;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
+		
+		setContentView(R.layout.updatenote);
+		
 		Intent intent = getIntent();
 
 		String aux = (String) intent.getSerializableExtra("nota");
 
 		int idNote = Integer.parseInt(aux);
 
-		title = (TextView) findViewById(R.id.noteTitleUpdate);
-		body = (TextView) findViewById(R.id.noteBodyUpdate);
+		title = (EditText) findViewById(R.id.noteTitleUpdate);
+		body = (EditText) findViewById(R.id.noteBodyUpdate);
 		
 		fillData(idNote);
-
-		setContentView(R.layout.updatenote);
 	}
 
 	public void fillData(int id) {
@@ -53,7 +54,7 @@ public class UpdateNoteActivity extends Activity implements Serializable {
 			Cursor c = bd.rawQuery(sql, null);
 
 			int titleIndex = c.getColumnIndex("title");
-			int bodyIndex = c.getColumnIndex("body");
+			int bodyIndex = c.getColumnIndex("note");
 
 			c.moveToFirst();
 
