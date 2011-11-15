@@ -24,7 +24,7 @@ public class AboutActivity extends Activity {
 		setContentView(R.layout.about);
 		webView = (WebView) findViewById(R.id.webView);
 		webView.setWebViewClient(new browserNotes());
-		webView.loadUrl("http://www.google.com.br");
+		webView.loadUrl("http://www.ya3.com.br");
 	}
 
 }
