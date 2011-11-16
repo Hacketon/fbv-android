@@ -103,7 +103,8 @@ public class UpdateNoteActivity extends Activity implements Serializable {
 				alert.setPositiveButton("Enviar", new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int whichButton) {
 						String destination = numberPhone.getText().toString().trim();
-						String message = title.toString() + body.toString();
+						String message = "Titulo: "+title.getText().toString() + 
+								" =====> Texto: " + body.getText().toString();
 						sendSms(UpdateNoteActivity.this, destination, message);
 						Toast.makeText(getApplicationContext(), "SMS enviado para "+destination,
 								Toast.LENGTH_LONG).show();
