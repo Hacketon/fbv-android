@@ -14,11 +14,13 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.telephony.gsm.SmsManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 import br.fbv.AboutActivity;
 import br.fbv.MainActivity;
 import br.fbv.R;
@@ -34,24 +36,30 @@ public class UpdateNoteActivity extends Activity implements Serializable {
 	private static final int CLOSE = Menu.FIRST + 4;
 
 	private int idNote = 0;
-	// Button btnSaveNote;
 	SQLiteDatabase bd = null;
-	// NotificationManager nm;
+	
+	AlertDialog.Builder alert;
 
+	EditText numberPhone;
 	EditText title;
 	EditText body;
 
 	Button btnUpdate;
 	Button btnDelete;
+	Button btnSendSms;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
+		
 		setContentView(R.layout.updatenote);
+		
+		alert = new AlertDialog.Builder(this);
+		numberPhone = new EditText(this);
 
 		title = (EditText) findViewById(R.id.noteTitleUpdate);
 		body = (EditText) findViewById(R.id.noteBodyUpdate);
+		
 
 		setID();
 
@@ -72,6 +80,7 @@ public class UpdateNoteActivity extends Activity implements Serializable {
 
 		btnUpdate = (Button) findViewById(R.id.btnUpdateNote);
 		btnDelete = (Button) findViewById(R.id.btnDeleteNote);
+		btnSendSms = (Button) findViewById(R.id.btnSendBySms);
 
 		btnUpdate.setOnClickListener(new View.OnClickListener() {
 
@@ -86,6 +95,41 @@ public class UpdateNoteActivity extends Activity implements Serializable {
 				deleteNote(idNote);
 			}
 		});
+		
+		btnSendSms.setOnClickListener(new View.OnClickListener() {
+			
+			public void onClick(View v) {
+				alert.setView(numberPhone);
+				alert.setPositiveButton("Enviar", new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int whichButton) {
+						String destination = numberPhone.getText().toString().trim();
+						String message = title.toString() + body.toString();
+						sendSms(UpdateNoteActivity.this, destination, message);
+						Toast.makeText(getApplicationContext(), "SMS enviado para "+destination,
+								Toast.LENGTH_LONG).show();
+						finish();
+					}
+				});
+
+				alert.setNegativeButton("Cancelar",
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog, int whichButton) {
+								dialog.cancel();
+							}
+						});
+				alert.show();				
+			}
+		});
+	}
+	
+	public void sendSms(Context context, String destination, String message) {
+		try {
+			SmsManager smsManager = SmsManager.getDefault();
+			PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, new Intent(), 0);
+			smsManager.sendTextMessage(destination, null, message, pendingIntent, null);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void fillData() {
