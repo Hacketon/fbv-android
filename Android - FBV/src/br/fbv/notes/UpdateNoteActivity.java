@@ -25,6 +25,7 @@ import br.fbv.AboutActivity;
 import br.fbv.MainActivity;
 import br.fbv.R;
 
+@SuppressWarnings("deprecation")
 public class UpdateNoteActivity extends Activity implements Serializable {
 
 	private static final long serialVersionUID = 1L;

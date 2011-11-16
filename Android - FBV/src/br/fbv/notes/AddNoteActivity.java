@@ -81,7 +81,6 @@ public class AddNoteActivity extends Activity {
 										int which) {
 									finish();
 								} // end method onClick
-
 							});
 					adb.show();
 				} // end try/catch
