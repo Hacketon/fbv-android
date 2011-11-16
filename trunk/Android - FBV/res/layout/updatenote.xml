@@ -45,7 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_marginRight="70dp"
-            android:text="Enviar por SMS" />
+            android:text="SMS" />
         
         <Button
             android:id="@+id/btnUpdateNote"
