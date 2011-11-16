@@ -64,7 +64,7 @@
    	    android:layout_width="fill_parent"
    	    android:layout_height="fill_parent"
    	    android:orientation="vertical"
-   	    android:paddingTop="30px">
+   	    android:layout_marginTop="30px">
    	    
    	    <WebView 
   			android:layout_width="fill_parent"
