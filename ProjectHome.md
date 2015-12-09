@@ -1,0 +1,1 @@
+Projeto para Desenvolvimento de Aplicativo para Cadeira de Desenvolvimento de Aplicativos Móveis, baseado na Plataforma Android.
